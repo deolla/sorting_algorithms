@@ -37,7 +37,6 @@ void cocktail_sort_list(listint_t **list)
 			if (left->n < left->prev->n)
 			{
 				swap_nodes(list, left->prev, left);
-				print_list(*list);
 				swapped = 1;
 			}
 			else
