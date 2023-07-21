@@ -56,6 +56,9 @@ void cocktail_sort_list(listint_t **list)
 */
 void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2)
 {
+	if (*list == NULL || node1 == NULL || node2 == NULL)
+		return;
+
 	if (node1->prev != NULL)
 		node1->prev->next = node2;
 	else
