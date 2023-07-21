@@ -15,12 +15,12 @@ void counting_sort(int *array, size_t size)
 
 	count_array = malloc(sizeof(int) * size);
 
-	if (!count_array)
+	if (count_array == NULL)
 		return;
 
 	max_num = maximum_value(array, size);
 	output = malloc(max_num + 1 * sizeof(int));
-	if (!output)
+	if (output == NULL)
 	{
 		free(count_array);
 		return;
