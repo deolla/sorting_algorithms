@@ -29,6 +29,9 @@ void cocktail_sort_list(listint_t **list)
 				left  = left->next;
 			}
 		}
+		if (!swapped)
+			break;
+
 		right = left;
 		while (left->prev != NULL)
 		{
