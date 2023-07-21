@@ -55,12 +55,7 @@ void counting_sort(int *array, size_t size)
  */
 int maximum_value(int *array, int size)
 {
-	int m = 0, u;
-
-	if (size == 0)
-	{
-		return (0);
-	}
+	int m = 1, u;
 
 	u = array[0];
 
