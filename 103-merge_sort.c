@@ -3,7 +3,7 @@
 /**
  * merge_sort - Sorts an array of integers in ascending order
  * using Merge sort algorithm.
- * @array: Pointer to the array to be sorted.
+ * @array: The array to be sorted.
  * @size: Number of elements in the array.
  */
 void merge_sort(int *array, size_t size)
@@ -13,83 +13,62 @@ void merge_sort(int *array, size_t size)
 	if (array == NULL || size < 2)
 		return;
 
-	tmp_array = (int *)malloc(size * sizeof(int));
+	tmp_array = malloc(size * sizeof(int));
 	if (tmp_array == NULL)
 		return;
 
-	merge_sort_recursive(array, 0, size - 1, tmp_array);
+	merge_sort_recursive(array, tmp_array, 0, size);
 
 	free(tmp_array);
 }
 
 /**
- * merge_sort_recursive - Recursive helper function for Merge sort
- *
+ * merge_sort_recursive - Recursive function for Merge sort
  * @array: The array to be sorted
- * @start: The starting index of the current sub-array.
- * @end: The ending index of the current sub-array.
- * @tmp_array: Temporary array for merging.
+ * @start: The starting index of sub-array.
+ * @end: The ending index of sub-array.
+ * @tmp_array: Temporary array.
  */
-void merge_sort_recursive(int *array, int start, int end, int *tmp_array)
+void merge_sort_recursive(int *array, int *tmp_array, size_t start, size_t end)
 {
-	int middle;
+	size_t middle;
 
-	if (start >= end)
-		return;
+	if (end - start > 1)
+	{
+		middle = start + (end - start) / 2;
+		merge_sort_recursive(array, tmp_array, start, middle);
+		merge_sort_recursive(array, tmp_array, middle, end);
 
-	middle = (start + end) / 2;
-
-	merge_sort_recursive(array, start, middle, tmp_array);
-	merge_sort_recursive(array, middle + 1, end, tmp_array);
-
-	merge(array, start, middle, end, tmp_array);
+		merge(array, tmp_array, start, middle, end);
+	}
 }
 
 /**
- * merge - Merges two sorted sub-arrays into a single sorted array
- *
+ * merge - Merges two sorted sub-arrays into a single sorted array.
  * @array: The original array
  * @start: The starting index.
- * @mid: The last index of the first sub-array
- * @end: The last index of the second sub-array
- * @tmp_array: Temporary array for merging
+ * @mid: The last index of sub-array
+ * @end: The last index of sub-array
+ * @tmp_array: Temporary array.
  */
-void merge(int *array, int start, int mid, int end, int *tmp_array)
+void merge(int *array, int *tmp_array, size_t start, size_t mid, size_t end)
 {
-	int left_index = start;
-	int right_index = mid + 1;
-	int tmp_index = 0, i;
+	size_t a, b, c = 0;
 
-	while (left_index <= mid && right_index <= end)
-	{
-		if (array[left_index] <= array[right_index])
-		{
-			tmp_array[tmp_index] = array[left_index];
-			left_index++;
-		}
-		else
-		{
-			tmp_array[tmp_index] = array[right_index];
-			right_index++;
-		}
-		tmp_index++;
-	}
-	
-	while (left_index <= mid)
-	{
-		tmp_array[tmp_index] = array[left_index];
-		left_index++;
-		tmp_index++;
-	}
+	printf("Merging...\n[left]: ");
+	print_array(array + start, mid - start);
+	printf("[right]: ");
+	print_array(array + mid, end - mid);
 
-	while (right_index <= end)
-	{
-		tmp_array[tmp_index] = array[right_index];
-		right_index++;
-		tmp_index++;
-	}
-	for (i = 0; i < tmp_index; i++)
-	{
-		array[start + i] = tmp_array[i];
-	}
+	for (a = start, b = mid; a < mid && b < end; c++)
+		tmp_array[c] = (array[a] < array[b]) ? array[a++] : array[b++];
+	for (; a < mid; a++)
+		tmp_array[c++] = array[a];
+	for (; b < end; b++)
+		tmp_array[c++] = array[b];
+	for (a = start, c = 0; a < end; a++)
+		array[a] = tmp_array[c++];
+
+	printf("[Done]: ");
+	print_array(array + start, end - start);
 }
