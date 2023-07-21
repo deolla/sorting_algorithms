@@ -21,7 +21,7 @@ void heap_sort(int *array, size_t size)
 	{
 		heap_swap(array, array + m);
 		print_array(array, size);
-		sift_down(array, size, m, 0);	
+		sift_down(array, size, m, 0);
 	}
 }
 
