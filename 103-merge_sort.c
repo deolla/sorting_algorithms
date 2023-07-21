@@ -17,27 +17,27 @@ void merge_sort(int *array, size_t size)
 	if (tmp_array == NULL)
 		return;
 
-	merge_sort_recursive(array, tmp_array, 0, size);
+	merge_recursive(array, tmp_array, 0, size);
 
 	free(tmp_array);
 }
 
 /**
- * merge_sort_recursive - Recursive function for Merge sort
+ * merge_recursive - Recursive function for Merge sort
  * @array: The array to be sorted
  * @start: The starting index of sub-array.
  * @end: The ending index of sub-array.
  * @tmp_array: Temporary array.
  */
-void merge_sort_recursive(int *array, int *tmp_array, size_t start, size_t end)
+void merge_recursive(int *array, int *tmp_array, size_t start, size_t end)
 {
 	size_t middle;
 
 	if (end - start > 1)
 	{
 		middle = start + (end - start) / 2;
-		merge_sort_recursive(array, tmp_array, start, middle);
-		merge_sort_recursive(array, tmp_array, middle, end);
+		merge_recursive(array, tmp_array, start, middle);
+		merge_recursive(array, tmp_array, middle, end);
 
 		merge(array, tmp_array, start, middle, end);
 	}

@@ -39,6 +39,6 @@ void shell_sort(int *array, size_t size);
 void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2);
 int maximum_value(int *array, int size);
 void merge(int *array, int *tmp_array, size_t start, size_t mid, size_t end);
-void merge_sort_recursive(int *array, int *tmp_array, size_t start, size_t end);
+void merge_recursive(int *array, int *tmp_array, size_t start, size_t end);
 
 #endif /*_SORT_H_ */
