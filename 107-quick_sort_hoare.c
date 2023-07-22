@@ -8,15 +8,15 @@
  */
 void quick_sort_hoare(int *array, size_t size)
 {
-	 if (array == NULL || size < 2)
-		 return;
+	if (array == NULL || size < 2)
+		return;
 
-	 quick_recursive(array, size, 0, size - 1);
+	quick_recursive(array, size, 0, size - 1);
 }
 /**
  * quick_recursive - Recursively performs Quick sort on the array
- *
  * @array: The array to be sorted
+ * @size: The numbers of an element in an array.
  * @low: The low index of the partition
  * @high: The high index of the partition
  */
@@ -33,10 +33,11 @@ void quick_recursive(int *array, size_t size, int low, int high)
 }
 
 /**
- * hoare_partition - Partitions the array using the Hoare partition scheme
- * @array: The array to be partitioned
- * @low: The low index of the partition
- * @high: The high index of the partition
+ * hoare_partition - Partitions the array using the Hoare partition scheme.
+ * @array: The array to be partitioned.
+ * @size: The numbers of element in array.
+ * @low: The low index of the partition.
+ * @high: The high index of the partition.
  *
  * Return: The index of the pivot after partitioning
  */
