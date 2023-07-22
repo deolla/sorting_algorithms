@@ -3,7 +3,6 @@
 
 #include <unistd.h>
 #include <stdio.h>
-#include <stddef.h>
 #include <stdlib.h>
 
 /**
@@ -30,6 +29,7 @@ void cocktail_sort_list(listint_t **list);
 void counting_sort(int *array, size_t size);
 void merge_sort(int *array, size_t size);
 void heap_sort(int *array, size_t size);
+void radix_sort(int *array, size_t size);
 
 /* Helper Functions */
 void swap(int *array, ssize_t a, ssize_t b);
@@ -43,5 +43,6 @@ void merge(int *array, int *tmp_array, size_t start, size_t mid, size_t end);
 void merge_recursive(int *array, int *tmp_array, size_t start, size_t end);
 void sift_down(int *array, size_t size, size_t pop, size_t index);
 void heap_swap(int *a, int *b);
+void count_sort(int *array, size_t size, int e);
 
 #endif /*_SORT_H_ */
