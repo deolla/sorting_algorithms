@@ -43,6 +43,6 @@ void merge(int *array, int *tmp_array, size_t start, size_t mid, size_t end);
 void merge_recursive(int *array, int *tmp_array, size_t start, size_t end);
 void sift_down(int *array, size_t size, size_t pop, size_t index);
 void heap_swap(int *a, int *b);
-void count_sort(int *array, size_t size, int e);
+void count_sort(int *array, size_t size, int e, int *output);
 
 #endif /*_SORT_H_ */
