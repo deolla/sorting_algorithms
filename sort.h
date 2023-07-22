@@ -5,8 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define OPS 0
-#define OP 1
+#define OP 0
+#define OS 1
 
 /**
  * struct listint_s - Doubly linked list node
@@ -34,7 +34,6 @@ void merge_sort(int *array, size_t size);
 void heap_sort(int *array, size_t size);
 void radix_sort(int *array, size_t size);
 void bitonic_sort(int *array, size_t size);
-void bitonic_sort(int *array, size_t size);
 
 /* Helper Functions */
 void swap(int *array, ssize_t a, ssize_t b);
@@ -49,7 +48,7 @@ void merge_recursive(int *array, int *tmp_array, size_t start, size_t end);
 void sift_down(int *array, size_t size, size_t pop, size_t index);
 void heap_swap(int *a, int *b);
 void count_sort(int *array, size_t size, int e, int *output);
+void bitonic_recur(int *array, size_t size, size_t ops, size_t dir, char pop);
+void bitonic_merge(int *array, size_t size, size_t ops, size_t dir, char pop);
 void _swap(int *a, int *b);
-void bitonic_merge(int *array, size_t size, size_t low, char pop, size_t dir);
-void bitonic_recursive(int *array, size_t size, size_t low, char pop, size_t dir);
 #endif /*_SORT_H_ */
