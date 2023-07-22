@@ -34,6 +34,7 @@ void merge_sort(int *array, size_t size);
 void heap_sort(int *array, size_t size);
 void radix_sort(int *array, size_t size);
 void bitonic_sort(int *array, size_t size);
+void quick_sort_hoare(int *array, size_t size);
 
 /* Helper Functions */
 void swap(int *array, ssize_t a, ssize_t b);
@@ -51,4 +52,6 @@ void count_sort(int *array, size_t size, int e, int *output);
 void bitonic_recur(int *array, size_t size, size_t ops, size_t dir, char pop);
 void bitonic_merge(int *array, size_t size, size_t ops, size_t dir, char pop);
 void _swap(int *a, int *b);
+void quick_recursive(int *array, size_t size, int low, int high);
+int hoare_partition(int *array, int size, int low, int high);
 #endif /*_SORT_H_ */
