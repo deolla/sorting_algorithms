@@ -42,7 +42,7 @@ void bitonic_merge(int *array, size_t size, size_t ops, size_t dir, char pop)
 }
 
 /**
- * bitonic_seq - Convert an array of integers into a bitonic sequence.
+ * bitonic_recur - Convert an array of integers into a bitonic sequence.
  * @array: The array.
  * @size: Number of elements in the array
  * @ops: Starting index of the bitonic sequence
