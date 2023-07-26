@@ -48,6 +48,9 @@ typedef struct deck_node_s
 } deck_node_t;
 
 void sort_deck(deck_node_t **deck);
+
+/** Helper Function */
 int compare_cards(const void *a, const void *b);
+int my_strcmp(const char *s1, const char *s2);
 
 #endif /* _DECK_H_ */

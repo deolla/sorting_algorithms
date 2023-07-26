@@ -78,3 +78,19 @@ void sort_deck(deck_node_t **deck)
 	free(cards_array);
 }
 
+/**
+ * strcmp - compares strings.
+ * @s1: first string.
+ * @s2: secomd string.
+ *
+ * Return: the comapared string.
+ */
+int strcmp(const char *s1, const char *s2)
+{
+	while (*s1 && *s2 && (*s1 == *s2))
+	{
+		s1++;
+		s2++;
+	}
+	return (*s1 - *s2);
+}
